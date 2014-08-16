@@ -1,0 +1,25 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha31.1.dtd" >
+   <PATCH nodename="C:\vvvv-sdk\vvvv45\packs\VVVV.Packs.KimchiAndChips\nodes\modules\CurrentTime (Animation seconds).v4p" systemname="CurrentTime (Animation seconds)" filename="C:\vvvv-sdk\vvvv45\packs\VVVV.Packs.KimchiAndChips\nodes\modules\CurrentTime (Animation seconds).v4p">
+   <BOUNDS type="Window" left="7695" top="18945" width="6810" height="5490">
+   </BOUNDS>
+   <NODE systemname="Timing (Debug)" nodename="Timing (Debug)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="1500" top="1500" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="GMT" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="1" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="3405" top="2295" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3405" top="2295" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="s">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Up Time|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Up Time" dstnodeid="1" dstpinname="Y Input Value">
+   </LINK>
+   </PATCH>
