@@ -1,0 +1,91 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.1.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_45beta33.1_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\Renderer (DX11 3D Camera Grid).v4p" systemname="Renderer (DX11 3D Camera Grid)" filename="C:\vvvv\vvvv_45beta33.1_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\Renderer (DX11 3D Camera Grid).v4p">
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="0">
+   <BOUNDS type="Node" left="1500" top="3765" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1500" top="3765" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="7050" top="5085" width="23040" height="25440">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Depth Buffer Mode" slicecount="1" values="Standard">
+   </PIN>
+   <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
+   </PIN>
+   <PIN pinname="Mouse State" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="2595" top="3345" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="AxisAndGrid (DX11.Layer)" filename="%VVVV%\packs\VVVV.Packs.KimchiAndChips\nodes\modules\AxisAndGrid (DX11.Layer).v4p" nodename="AxisAndGrid (DX11.Layer)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="2505" top="2115" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Group (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Group (DX11.Layer)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="2325" top="2610" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="4" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2700" top="1500" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2700" top="1500" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Layer in|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="View" dstnodeid="0" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Projection" dstnodeid="0" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Layer Out" dstnodeid="3" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Output Node" dstnodeid="3" dstpinname="Layer 2">
+   </LINK>
+   <BOUNDS type="Window" left="33255" top="22905" width="4185" height="5460">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="33.0.0">
+   </PACK>
+   <NODE systemname="AspectRatio (DX11.Layer)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="AspectRatio (DX11.Layer)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="1665" top="3015" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer In" visible="1">
+   </PIN>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Layer Out" dstnodeid="5" dstpinname="Layer In">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="Layer Out" dstnodeid="0" dstpinname="Layers">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="6" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1500" top="4260" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1500" top="4260" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Mouse State|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Mouse State" dstnodeid="6" dstpinname="Input Node">
+   </LINK>
+   </PATCH>
