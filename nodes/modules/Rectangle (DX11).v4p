@@ -1,7 +1,11 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
    <PATCH nodename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\Rectangle (DX11).v4p" systemname="Rectangle (DX11)" filename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\Rectangle (DX11).v4p">
+   <BOUNDS type="Window" left="10310" top="11940" width="7860" height="6580">
+   </BOUNDS>
+   <PACK Name="addonpack" Version="33.7.0">
+   </PACK>
    <NODE systemname="Line (DX11)" filename="%VVVV%\packs\dx11\nodes\modules\Line (DX11).v4p" nodename="Line (DX11)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="1500" top="2360" width="100" height="100">
+   <BOUNDS type="Node" left="1500" top="2860" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform" visible="1" slicecount="1" values="||">
    </PIN>
@@ -10,6 +14,10 @@
    <PIN pinname="VerticesXYZ" visible="1">
    </PIN>
    <PIN pinname="BinSize" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="Color" visible="1" slicecount="2" values="|0.02000,1.00000,0.00000,0.50000|,|0.00000,0.04000,1.00000,0.50000|">
+   </PIN>
+   <PIN pinname="Width" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="CircularSpread (Spreads)" nodename="CircularSpread (Spreads)" componentmode="Hidden" id="1">
@@ -55,9 +63,9 @@
    <NODE id="4" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
    <PIN pinname="Descriptive Name" slicecount="1" values="Layer">
    </PIN>
-   <BOUNDS type="Box" left="1500" top="2960" width="750" height="240">
+   <BOUNDS type="Box" left="1500" top="3460" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1500" top="2960" width="750" height="240">
+   <BOUNDS type="Node" left="1500" top="3460" width="750" height="240">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="4" dstpinname="Input Node">
@@ -66,8 +74,46 @@
    </LINK>
    <LINK srcnodeid="1" srcpinname="Output Y" dstnodeid="2" dstpinname="Y">
    </LINK>
-   <BOUNDS type="Window" left="10310" top="11940" width="3620" height="3960">
+   <NODE nodename="IOBox (Color)" componentmode="InABox" id="5" systemname="IOBox (Color)">
+   <BOUNDS type="Box" left="3010" top="400" width="2250" height="480">
    </BOUNDS>
-   <PACK Name="addonpack" Version="33.7.0">
-   </PACK>
+   <BOUNDS type="Node" left="3010" top="400" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Color Input" slicecount="1" visible="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Color">
+   </PIN>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="6" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5560" top="420" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5560" top="420" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="2">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Width">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Width">
+   </LINK>
+   <NODE systemname="Select (Color)" nodename="Select (Color)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="2760" top="2230" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Select" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Color Output" dstnodeid="7" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Output" dstnodeid="0" dstpinname="Color">
+   </LINK>
    </PATCH>

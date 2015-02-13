@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" systemname="FloorGrid (DX11)" filename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" scrollx="0" scrolly="610">
+   <PATCH nodename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" systemname="FloorGrid (DX11)" filename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" scrollx="460" scrolly="670">
    <BOUNDS type="Window" left="10190" top="7210" width="6980" height="9460">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
@@ -52,6 +52,10 @@
    <PIN pinname="Render State" visible="1">
    </PIN>
    <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="Diffuse Color" slicecount="1" values="|0.69437,0.69437,0.69437,1.00000|">
+   </PIN>
+   <PIN pinname="Specular Color" slicecount="1" values="|0.09264,0.09264,0.09264,1.00000|">
    </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="4" dstpinname="Texture">
