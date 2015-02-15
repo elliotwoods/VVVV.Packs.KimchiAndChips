@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta33.7.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" systemname="FloorGrid (DX11)" filename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" scrollx="460" scrolly="670">
-   <BOUNDS type="Window" left="10190" top="7210" width="6980" height="9460">
+   <PATCH nodename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" systemname="FloorGrid (DX11)" filename="C:\vvvv\vvvv_45beta33.7_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" scrollx="460" scrolly="0">
+   <BOUNDS type="Window" left="10190" top="7210" width="9840" height="10510">
    </BOUNDS>
    <PACK Name="addonpack" Version="33.7.0">
    </PACK>
@@ -53,9 +53,13 @@
    </PIN>
    <PIN pinname="Transform In" visible="1">
    </PIN>
-   <PIN pinname="Diffuse Color" slicecount="1" values="|0.69437,0.69437,0.69437,1.00000|">
+   <PIN pinname="Diffuse Color" slicecount="1" values="|0.47297,0.47297,0.47297,1.00000|">
    </PIN>
    <PIN pinname="Specular Color" slicecount="1" values="|0.09264,0.09264,0.09264,1.00000|">
+   </PIN>
+   <PIN pinname="g_samLinear" visible="1">
+   </PIN>
+   <PIN pinname="Ambient Color" slicecount="1" values="|0.45848,0.45848,0.45848,1.00000|">
    </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="4" dstpinname="Texture">
@@ -209,6 +213,8 @@
    </PIN>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
+   </PIN>
    </NODE>
    <NODE systemname="Vector (3d Join)" nodename="Vector (3d Join)" componentmode="Hidden" id="21">
    <BOUNDS type="Node" left="1670" top="4050" width="2150" height="270">
@@ -302,6 +308,8 @@
    <PIN pinname="XYZ" visible="1">
    </PIN>
    <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
    <NODE systemname="Vector (3d Join)" nodename="Vector (3d Join)" componentmode="Hidden" id="30">
@@ -413,5 +421,39 @@
    <LINK srcnodeid="37" srcpinname="Output" dstnodeid="40" dstpinname="Input 2">
    </LINK>
    <LINK srcnodeid="40" srcpinname="Output" dstnodeid="26" dstpinname="String">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="41" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="670" top="390" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="670" top="390" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Transform">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="41" srcpinname="Output Node" dstnodeid="22" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="700" y="2630">
+   </LINKPOINT>
+   <LINKPOINT x="960" y="2630">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="41" srcpinname="Output Node" dstnodeid="31" dstpinname="Transform In" linkstyle="Bezier">
+   <LINKPOINT x="730" y="2635">
+   </LINKPOINT>
+   <LINKPOINT x="4430" y="2635">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Sampler (DX11 Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sampler (DX11 Advanced)" componentmode="Hidden" id="42">
+   <BOUNDS type="Node" left="2510" top="5380" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Sampler" visible="1">
+   </PIN>
+   <PIN pinname="Filter Mode" slicecount="1" values="Anisotropic">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Sampler" dstnodeid="4" dstpinname="g_samLinear">
    </LINK>
    </PATCH>
