@@ -19,7 +19,7 @@
    </PIN>
    <PIN pinname="Topology" slicecount="1" values="PointList">
    </PIN>
-   <PIN pinname="Apply" slicecount="1" visible="1" values="0">
+   <PIN pinname="Apply" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Vertices" visible="1" slicecount="5" values="0,0,0,0,0">
    </PIN>
@@ -69,16 +69,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="1" srcpinname="Geometry Out" dstnodeid="4" dstpinname="Input Node">
-   </LINK>
-   <NODE systemname="OnOpen (VVVV)" nodename="OnOpen (VVVV)" componentmode="Hidden" id="5">
-   <BOUNDS type="Node" left="2660" top="2590" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Bang" visible="1">
-   </PIN>
-   <PIN pinname="Simulate" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="5" srcpinname="Bang" dstnodeid="1" dstpinname="Apply">
    </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="8">
    <BOUNDS type="Node" left="570" top="1490" width="100" height="100">
@@ -131,5 +121,23 @@
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Input 2">
    </LINK>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="12" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2676" top="2340" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2676" top="2340" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Apply">
    </LINK>
    </PATCH>

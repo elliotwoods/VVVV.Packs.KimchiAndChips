@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
    <PATCH nodename="C:\vvvv\vvvv_45beta34.2_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\RoomGrid (DX11).v4p" systemname="RoomGrid (DX11)" filename="C:\vvvv\vvvv_45beta34.2_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\RoomGrid (DX11).v4p" scrollx="1104" scrolly="0">
-   <BOUNDS type="Window" left="7548" top="7680" width="16980" height="13884">
+   <BOUNDS type="Window" left="9468" top="11196" width="16980" height="13884">
    </BOUNDS>
    <NODE systemname="FloorGrid (DX11)" filename="%VVVV%\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" nodename="FloorGrid (DX11)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="1720" top="8840" width="100" height="100">
@@ -20,6 +20,10 @@
    <PIN pinname="Diffuse Color" visible="1">
    </PIN>
    <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Labels" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Dark" visible="1">
    </PIN>
    </NODE>
    <PACK Name="addonpack" Version="34.1.0">
@@ -113,7 +117,7 @@
    </BOUNDS>
    <PIN pinname="Render State" visible="-1" pintype="Input" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Layer 1" visible="1">
+   <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Layer Out" visible="1">
    </PIN>
@@ -128,8 +132,6 @@
    <PIN pinname="Layer 5" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="8" dstpinname="Layer 1">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="9" systemname="IOBox (Node)">
    <BOUNDS type="Box" left="1730" top="10490" width="800" height="240">
    </BOUNDS>
@@ -190,24 +192,6 @@
    <LINKPOINT x="2670" y="4620">
    </LINKPOINT>
    <LINKPOINT x="2230" y="5420">
-   </LINKPOINT>
-   </LINK>
-   <NODE nodename="IOBox (Color)" componentmode="InABox" id="53" systemname="IOBox (Color)">
-   <BOUNDS type="Box" left="5430" top="400" width="2250" height="480">
-   </BOUNDS>
-   <BOUNDS type="Node" left="5430" top="400" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Color Input" slicecount="1" visible="1" values="|0.47151,0.47151,0.47151,1.00000|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Diffuse Color|">
-   </PIN>
-   <PIN pinname="Color Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="53" srcpinname="Color Output" dstnodeid="0" dstpinname="Diffuse Color" linkstyle="Bezier">
-   <LINKPOINT x="5440" y="4455">
-   </LINKPOINT>
-   <LINKPOINT x="3140" y="5255">
    </LINKPOINT>
    </LINK>
    <NODE systemname="GeometryBuffer (DX11.Geometry Join)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="GeometryBuffer (DX11.Geometry Join)" componentmode="Hidden" id="55">
@@ -323,7 +307,7 @@
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="Geometry" visible="1">
+   <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Render State" visible="1">
    </PIN>
@@ -333,8 +317,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="61" srcpinname="Layer" dstnodeid="8" dstpinname="Layer 2">
-   </LINK>
-   <LINK srcnodeid="55" srcpinname="Geometry Out" dstnodeid="61" dstpinname="Geometry">
    </LINK>
    <LINK srcnodeid="60" srcpinname="Output" dstnodeid="55" dstpinname="Vertices">
    </LINK>
@@ -439,5 +421,25 @@
    <LINK srcnodeid="62" srcpinname="Output" dstnodeid="71" dstpinname="Input">
    </LINK>
    <LINK srcnodeid="66" srcpinname="Output" dstnodeid="71" dstpinname="Select">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="72">
+   <BOUNDS type="Node" left="11712" top="480" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="11712" top="480" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Dark">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="55" srcpinname="Geometry Out" dstnodeid="61" dstpinname="Geometry">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="8" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="72" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Dark">
    </LINK>
    </PATCH>

@@ -6,6 +6,7 @@
 Texture2D texture2d : PREVIOUS;
 float PreMultiplier = 1.0f;
 float PostMultiplier = 1.0f;
+float PostAddition = 1.0f;
 bool ClampZero = true;
 
 SamplerState linearSampler : IMMUTABLE
@@ -25,7 +26,7 @@ struct psInput
 float4 PS(psInput input) : SV_Target
 {
 	float4 c = texture2d.Sample(linearSampler,input.uv);
-	c.xyz = log(c.xyz * PreMultiplier) * PostMultiplier;
+	c.xyz = (log(c.xyz * PreMultiplier) + PostAddition) * PostMultiplier;
 	c.xyz *= c.xyz > 0.0f;
 	c.a = 1.0f;
 	return c;
