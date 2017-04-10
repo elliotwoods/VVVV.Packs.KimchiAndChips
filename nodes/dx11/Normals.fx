@@ -23,6 +23,7 @@ cbuffer cbPerDraw : register(b0)
 cbuffer cbPerObj : register( b1 )
 {
 	float4x4 tW : WORLD;
+	float4x4 NormalsTransform;
 	float4x4 tWIT: WORLDINVERSETRANSPOSE;
 };
 
@@ -34,6 +35,10 @@ psInput VS(vsInput input)
 	float4 normals = input.normalObject;
 	normals.xyz = mul(normals.xyz, (float3x3) tWIT);
 	normals.xyz = normalize(normals.xyz);
+	normals.w = 1.0f;
+	
+	normals = mul(normals, NormalsTransform);
+	normals /= normals.w;
 	
 	output.normalWorld = normals;
 	return output;
