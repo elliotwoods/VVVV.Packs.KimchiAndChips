@@ -11,6 +11,7 @@ cbuffer cbPerDraw : register( b0 )
 cbuffer cbPerObj : register( b1 )
 {
 	float4x4 tW : WORLD;
+	float4x4 Transform;
 };
 
 struct VS_IN
@@ -23,6 +24,7 @@ struct vs2ps
 {
     float4 PosWVP: SV_POSITION;
     float4 PosW: TEXCOORD0;
+    float4 PosO: TEXCOORD1;
 };
 
 vs2ps VS(VS_IN input)
@@ -30,6 +32,7 @@ vs2ps VS(VS_IN input)
     vs2ps output;
 	output.PosW = mul(input.PosO, tW);
 	output.PosWVP = mul(output.PosW, tVP);
+	output.PosO = mul(output.PosW, Transform);
     return output;
 }
 
@@ -38,8 +41,8 @@ vs2ps VS(VS_IN input)
 
 float4 PS(vs2ps In): SV_Target
 {
-	In.PosW /= In.PosW.w;
-    float4 col = In.PosW;
+	In.PosO /= In.PosO.w;
+    float4 col = In.PosO;
     return col;
 }
 
