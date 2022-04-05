@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.2.dtd" >
-   <PATCH nodename="C:\vvvv\vvvv_45beta34.2_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\RoomGrid (DX11).v4p" systemname="RoomGrid (DX11)" filename="C:\vvvv\vvvv_45beta34.2_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\RoomGrid (DX11).v4p" scrollx="1104" scrolly="0">
-   <BOUNDS type="Window" left="9468" top="11196" width="16980" height="13884">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta34.1.dtd" >
+   <PATCH nodename="C:\vvvv\vvvv_50beta35.8_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\RoomGrid (DX11).v4p" systemname="RoomGrid (DX11)" filename="C:\vvvv\vvvv_45beta34.2_x64\packs\VVVV.Packs.KimchiAndChips\nodes\modules\RoomGrid (DX11).v4p" scrollx="1104" scrolly="0">
+   <BOUNDS type="Window" left="4830" top="10935" width="16980" height="13875">
    </BOUNDS>
    <NODE systemname="FloorGrid (DX11)" filename="%VVVV%\packs\VVVV.Packs.KimchiAndChips\nodes\modules\FloorGrid (DX11).v4p" nodename="FloorGrid (DX11)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="1720" top="8840" width="100" height="100">
@@ -25,6 +25,8 @@
    </PIN>
    <PIN pinname="Dark" visible="1">
    </PIN>
+   <BOUNDS type="Window" left="1608" top="12156" width="9840" height="10500">
+   </BOUNDS>
    </NODE>
    <PACK Name="addonpack" Version="34.1.0">
    </PACK>
@@ -309,15 +311,13 @@
    </PIN>
    <PIN pinname="Geometry" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Render State" visible="1">
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Texture" visible="1">
+   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Sampler State" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="61" srcpinname="Layer" dstnodeid="8" dstpinname="Layer 2">
-   </LINK>
    <LINK srcnodeid="60" srcpinname="Output" dstnodeid="55" dstpinname="Vertices">
    </LINK>
    <NODE systemname="Switch (Value Input)" nodename="Switch (Value Input)" componentmode="Hidden" id="62">
@@ -339,18 +339,6 @@
    <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="62" dstpinname="Input 1">
    </LINK>
    <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="62" dstpinname="Input 2">
-   </LINK>
-   <NODE systemname="Rasterizer (DX11.RenderState)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState)" componentmode="Hidden" id="63">
-   <BOUNDS type="Node" left="4104" top="9096" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Mode" slicecount="1" values="FrontCullSimple">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="63" srcpinname="Render State" dstnodeid="61" dstpinname="Render State">
-   </LINK>
-   <LINK srcnodeid="0" srcpinname="Texture Out" dstnodeid="61" dstpinname="Texture">
    </LINK>
    <NODE systemname="Sampler (DX11 Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Sampler (DX11 Advanced)" componentmode="Hidden" id="64">
    <BOUNDS type="Node" left="6864" top="9036" width="100" height="100">
@@ -441,5 +429,53 @@
    <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="8" dstpinname="Layer 1">
    </LINK>
    <LINK srcnodeid="72" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Dark">
+   </LINK>
+   <LINK srcnodeid="61" srcpinname="Layer" dstnodeid="8" dstpinname="Layer 2">
+   </LINK>
+   <NODE systemname="Rasterizer (DX11.RenderState Advanced)" filename="%VVVV%\packs\dx11\nodes\plugins\base\VVVV.DX11.Nodes.dll" nodename="Rasterizer (DX11.RenderState Advanced)" componentmode="Hidden" id="63">
+   <BOUNDS type="Node" left="4104" top="9096" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Mode" slicecount="1" values="FrontCullSimple">
+   </PIN>
+   <PIN pinname="Cull Mode" slicecount="1" values="Front">
+   </PIN>
+   <PIN pinname="Enable MultiSampling" slicecount="1" values="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="63" srcpinname="Render State" dstnodeid="61" dstpinname="Render State">
+   </LINK>
+   <NODE systemname="FileTexture (DX11 2d)" filename="%VVVV%\packs\dx11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="FileTexture (DX11 2d)" componentmode="Hidden" id="74">
+   <BOUNDS type="Node" left="4524" top="8346" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Filename" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Reload" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="73" systemname="IOBox (String)">
+   <BOUNDS type="Box" left="4524" top="7896" width="800" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="4524" top="7896" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="1" values="..\..\assets\grid-10.png">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="73" srcpinname="Output String" dstnodeid="74" dstpinname="Filename">
+   </LINK>
+   <LINK srcnodeid="74" srcpinname="Texture Out" dstnodeid="61" dstpinname="Texture">
    </LINK>
    </PATCH>
